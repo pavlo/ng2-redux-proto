@@ -9,8 +9,7 @@ import { Store, createStore } from 'redux'
 import { AppComponent } from './app.component';
 import { AppState, rootReducer } from './store/index'
 import { CurrentUserActions } from './actions/current-user.actions'
-
-
+import { ArticlesActions } from './actions/articles.actions'
 
 @NgModule({
   declarations: [
@@ -23,7 +22,8 @@ import { CurrentUserActions } from './actions/current-user.actions'
     NgReduxModule
   ],
   providers: [
-    CurrentUserActions
+    CurrentUserActions,
+    ArticlesActions
   ],
   bootstrap: [AppComponent]
 })
