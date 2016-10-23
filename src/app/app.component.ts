@@ -21,9 +21,7 @@ export class AppComponent implements OnInit {
 
   constructor(private ngRedux: NgRedux<AppState>, 
     private userActions: CurrentUserActions,
-    private articlesActions: ArticlesActions) {
-      // ...
-  }
+    private articlesActions: ArticlesActions) {}
 
   ngOnInit() {
     this.ngRedux.select('currentUser').forEach(s => this.currentUser = ((s as CurrentUserState)));

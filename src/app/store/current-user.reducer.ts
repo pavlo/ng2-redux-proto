@@ -10,7 +10,6 @@ export class CurrentUserState {
 
 const initialState = new CurrentUserState('0987654321', false);
 
-
 export function currentUserReducer(state: CurrentUserState = initialState, action: any) {
   switch (action.type) {
     case CurrentUserActions.SET_TIMEZONE:
