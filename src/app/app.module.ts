@@ -8,6 +8,7 @@ import { Store, createStore } from 'redux'
 
 import { AppComponent } from './app.component';
 import { AppState, rootReducer } from './store/index'
+import { ApiService } from './services/api.service'
 import { CurrentUserActions } from './actions/current-user.actions'
 import { ArticlesActions } from './actions/articles.actions'
 
@@ -22,6 +23,7 @@ import { ArticlesActions } from './actions/articles.actions'
     NgReduxModule
   ],
   providers: [
+    ApiService,
     CurrentUserActions,
     ArticlesActions
   ],
