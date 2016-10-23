@@ -1,8 +1,10 @@
-<h1>
-  {{title}}
-</h1>
 
-<div>User's timezone now is: {{userTimezone$ | async }}</div>
+<h3>User:</h3>
+<div>
+  <div>ID: {{currentUser?.id}}</div>
+  <div>Is Admin: {{currentUser?.isAdmin}}</div>
+  <div>Timezone: {{currentUser?.timezone}}</div>
+</div>
 
 <div>
   <button (click)="setUserTimezone()">Set User Time Zone</button>

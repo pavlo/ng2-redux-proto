@@ -7,7 +7,8 @@ import { NgReduxModule, NgRedux } from 'ng2-redux';
 import { Store, createStore } from 'redux'
 
 import { AppComponent } from './app.component';
-import { AppState, rootReducer } from './store/index' 
+import { AppState, rootReducer } from './store/index'
+import { CurrentUserActions } from './actions/current-user.actions'
 
 
 
@@ -21,7 +22,9 @@ import { AppState, rootReducer } from './store/index'
     HttpModule,
     NgReduxModule
   ],
-  providers: [],
+  providers: [
+    CurrentUserActions
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
