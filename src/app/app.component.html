@@ -1,3 +1,13 @@
 <h1>
   {{title}}
 </h1>
+
+<div>User's timezone now is: {{userTimezone$ | async }}</div>
+
+<div>
+  <button (click)="setUserTimezone()">Set User Time Zone</button>
+</div>
+
+<div>
+  <button (click)="fetchArticles()">Fetch Articles</button>
+</div>
