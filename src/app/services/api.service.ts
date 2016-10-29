@@ -4,12 +4,15 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { Http, Response } from '@angular/http'
+import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class ApiService {
 
-  private static URL = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
+  private static URL = 'https://query.yahooapis.com/v1/public/yql?' +
+  'q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20' +
+  '(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)' +
+  '&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
 
   constructor(private http: Http) { }
 

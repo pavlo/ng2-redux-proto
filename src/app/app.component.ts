@@ -1,13 +1,12 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { Component, OnInit } from '@angular/core';
 
-import { NgRedux, select } from 'ng2-redux';
+import { NgRedux } from 'ng2-redux';
 
-import { AppState } from './store/index'
-import { CurrentUserState } from './store/current-user.reducer'
-import { ArticlesState } from './store/articles.reducer'
-import { CurrentUserActions } from './actions/current-user.actions'
-import { ArticlesActions } from './actions/articles.actions'
+import { AppState } from './app.state';
+import { CurrentUserState } from './store/current-user.reducer';
+import { ArticlesState } from './store/articles.reducer';
+import { CurrentUserActions } from './actions/current-user.actions';
+import { ArticlesActions } from './actions/articles.actions';
 
 
 @Component({
@@ -19,7 +18,7 @@ export class AppComponent implements OnInit {
   currentUser: CurrentUserState;
   articles: ArticlesState;
 
-  constructor(private ngRedux: NgRedux<AppState>, 
+  constructor(private ngRedux: NgRedux<AppState>,
     private userActions: CurrentUserActions,
     private articlesActions: ArticlesActions) {}
 
@@ -29,12 +28,12 @@ export class AppComponent implements OnInit {
   }
 
   setUserTimezone() {
-    console.log("AppComponent#setUserTimezone clicked");
+    console.log('AppComponent#setUserTimezone clicked');
     this.userActions.setTimezone('Kiev: ' + Math.random());
   }
 
   fetchArticles() {
-    console.log("AppComponent#fetchArticles clicked");
+    console.log('AppComponent#fetchArticles clicked');
     this.articlesActions.fetch();
   }
 

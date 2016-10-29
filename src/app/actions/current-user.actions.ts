@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NgRedux } from 'ng2-redux';
 
-import { AppState } from '../store/index'
+import { AppState } from '../app.state';
 
 @Injectable()
 export class CurrentUserActions {

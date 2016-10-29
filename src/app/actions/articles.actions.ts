@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { NgRedux } from 'ng2-redux';
 
-import { AppState } from '../store/index'
-import { ApiService } from '../services/api.service'
+import { AppState } from '../app.state';
+import { ApiService } from '../services/api.service';
 
 @Injectable()
 export class ArticlesActions {

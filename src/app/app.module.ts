@@ -4,13 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { NgReduxModule, NgRedux } from 'ng2-redux';
-import { Store, createStore } from 'redux'
+import { createStore } from 'redux';
 
+import { AppState } from './app.state';
 import { AppComponent } from './app.component';
-import { AppState, rootReducer } from './store/index'
-import { ApiService } from './services/api.service'
-import { CurrentUserActions } from './actions/current-user.actions'
-import { ArticlesActions } from './actions/articles.actions'
+import { rootReducer } from './store/index';
+
+import { ApiService } from './services/api.service';
+import { PersistenceService } from './services/persistence.service';
+import { CurrentUserActions } from './actions/current-user.actions';
+import { ArticlesActions } from './actions/articles.actions';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { ArticlesActions } from './actions/articles.actions'
     NgReduxModule
   ],
   providers: [
+    PersistenceService,
     ApiService,
     CurrentUserActions,
     ArticlesActions
@@ -30,7 +34,9 @@ import { ArticlesActions } from './actions/articles.actions'
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(ngRedux: NgRedux<AppState>) {
-    ngRedux.provideStore( createStore(rootReducer, (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()) );
+  constructor(ngRedux: NgRedux<AppState>, persistenceService: PersistenceService) {
+    const store = createStore(rootReducer, (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__());
+    ngRedux.provideStore(store);
+    persistenceService.bootstrap(store);
   }
 }
